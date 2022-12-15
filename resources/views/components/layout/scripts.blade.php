@@ -12,7 +12,18 @@
     var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
     return new bootstrap.Dropdown(dropdownToggleEl)
     })
-    </script>
+
+    $breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8'><path d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='#{$breadcrumb-divider-color}'/></svg>")
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    $(document).ready(function(){
+    $('.date').mask('00/00/0000');
+    $('.time').mask('00:00:00');
+    $('.cep').mask('00000-000');
+    $('.phone').mask('(00) 00000-0000');
+    $('.cpf').mask('000.000.000-00');
+    $('.money').mask('R$ 00,00');
+});
+   </script>
     
 
 @endsection

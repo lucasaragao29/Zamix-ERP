@@ -1,7 +1,7 @@
 @include('app')
 @yield('header')
 <div class="container">
-    <form action="{{route('destroy_user',['id'=>$usuario->id])}}" method="POST">
+    <form action="{{route('destroy_user',['id'=>$usuario->id])}}" method="POST" style="margin-top: 2rem;">
         @csrf
         @method('delete')
     <div class="form-row">
@@ -12,7 +12,7 @@
                     <input type='text' value="{{$usuario->name}}" class="form-control" id="inputPassword4" name='mat'>
                     <br>
                     <button type="submit" class="btn btn-danger ">Sim</button>
-                    <button type="submit" class="btn btn-primary">Cancelar</button>
+                    <button type="submit" class="btn btn-primary"> <a href="{{route('home')}}">Cancelar</a></button>
 
                 </div>
             </div>

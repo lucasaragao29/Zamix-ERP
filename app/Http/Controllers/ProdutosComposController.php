@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ProdutoComposto;
 use Illuminate\Http\Request;
-use App\ProdutoCompostoModel;
-use App\ProdutosModel;
+
+use App\Produtos;
 use Illuminate\Console\Scheduling\Event;
 
 
@@ -14,14 +15,13 @@ class ProdutosComposController extends Controller
     {
         
 
-        $produto = ProdutosModel::all();
-
+        $produto = Produtos::all();
         return view('components.forms.form_prod_composto', compact('produto'));
     }
     public function store(Request $request)
     {    
         
-        ProdutoCompostoModel::create([
+       ProdutoComposto::create([
             'quantidade'=>$request->quantidade,
             'nome_prod_comp'=>$request->nome_prod_comp,
             'categoria'=>$request->categoria,
@@ -34,22 +34,21 @@ class ProdutosComposController extends Controller
        
     }
         public function index(){
-           $produtos=ProdutoCompostoModel::get();
-            return view('tabelas_produtos.tabela_composta',['produto'=>$produtos]);
+           $produtos=ProdutoComposto::get();
+            return view('tabelas_produtos.tabela_composta',['produtos'=>$produtos]);
       
         }
         public function show($id){
-            $produtos=ProdutoCompostoModel::get();
+            $produtos=ProdutoComposto::get();
             dd($produtos);
         }
         public function edit($id){
-            $produtos= ProdutoCompostoModel::FindOrFail($id);
-            return view('components.forms.form_prod_composto_edit',['produto'=> $produtos]);
+            $produtos= ProdutoComposto::FindOrFail($id);  
+            return view('components.forms.form_prod_composto_edit',['produtos'=> $produtos]);
           
         }
         public function update(Request $request,$id){
-            $produtos =ProdutoCompostoModel::FindOrFail($id);
-    
+            $produtos =ProdutoComposto::FindOrFail($id);
             $produtos->update([
                 'quantidade'=>$request->quantidade,
                 'nome_prod_comp'=>$request->nome_prod_comp,
@@ -59,15 +58,15 @@ class ProdutosComposController extends Controller
                 'preco_total'=>$request->preco_total,
                 'id_produto'=>$request->id_produto
             ]);
-            return redirect()->route('produtos_comp_tabela',['produto'=> $produtos]);
+            return redirect()->route('produtos_comp_edit',['produtos'=> $produtos]);
         }
         public function delete($id)
         {
-            $produtos= ProdutoCompostoModel::FindOrFail($id);
-            return view('tabelas_produtos.tabela_composta',['produto'=> $produtos]);
+            $produtos= ProdutoComposto::FindOrFail($id);
+            return view('tabelas_produtos.tabela_composta',['produtos'=> $produtos]);
         }
         public function destroy($id){
-            ProdutoCompostoModel::where('id',$id)->delete();
+            ProdutoComposto::where('id',$id)->delete();
             return redirect()->route('produtos_comp_tabela');
         }
 

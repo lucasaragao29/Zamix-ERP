@@ -16,7 +16,7 @@ class UserController extends Controller
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'senha'=>$request->senha
+            'password'=>$request->password
         ]);
         return view('components.forms.form_users');
     }
@@ -30,7 +30,7 @@ class UserController extends Controller
         $usuario->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'senha'=>$request->senha,
+            'password'=>$request->password,
         ]);
     return view('estoque');
     }

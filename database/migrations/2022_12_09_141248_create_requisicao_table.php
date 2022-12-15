@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequisicaoModelsTable extends Migration
+class CreateRequisicaoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRequisicaoModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('requisicao_models', function (Blueprint $table) {
+        Schema::create('requisicao', function (Blueprint $table) {
             $table->increments('id');
             $table->increments('id_usuario');
             $table->integer('id_usuario')->references('id')->on('users');
@@ -29,6 +29,6 @@ class CreateRequisicaoModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requisicao_models');
+        Schema::dropIfExists('requisicao');
     }
 }

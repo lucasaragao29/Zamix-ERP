@@ -20,25 +20,17 @@
     <div class="card-deck">
         <div class="card">
           <div class="card-body">
-            <a href="/estoque/consulta">
-            <h5 class="card-title"><i class="fa-solid fa-magnifying-glass"></i>Consultar Estoque</h5>
-            <p class="card-text">Acesse verificar os produtos no estoque.</p>
-          </a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <a href="/estoque/cadastro_produtos">
-            <h5 class="card-title"><i class="fa-solid fa-plus"></i>Adicionar Produto</h5>
-            <p class="card-text">Acesse para adicionar produto ao estoque.</p>
+            <a href="/editar_usuario/{{Auth::user()->id}}">
+            <h5 class="card-title"><i class="fa-solid fa-pain"></i>Editar Usuario</h5>
+            <p class="card-text">Acesse para editar o seu usuario.</p>
             </a>
           </div>
         </div>
         <div class="card">
           <div class="card-body">
             <a href="/estoque/retirar_produto">
-            <h5 class="card-title"><i class="fa-solid fa-cart-shopping"></i>Requisitar Produto</h5>
-            <p class="card-text">Acesse retirar produto mediante Requisição.</p>
+            <h5 class="card-title"><i class="fa-solid fa-cart-shopping"></i>Requisição</h5>
+            <p class="card-text">Acesse retirar uma Requisição.</p>
             </a>
           </div>
         </div>
@@ -50,6 +42,17 @@
             </a>
           </div>
         </div>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+                                     onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                      {{ __('Logout') }}
+                                  </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Deslogar</button>
+                            </form>
+       
       </div>
     </div>
 @yield('footer')

@@ -17,6 +17,9 @@ Auth::routes();
 Route::get('/estoque',function(){
     return view('estoque');
 });
+Route::get('/menu_usuario',function(){
+    return view('components.menu_user');
+});
 Route::get('/estoque/cadastro_produtos',function(){
     return view('prod_sim_comp');
 });
@@ -38,9 +41,9 @@ Route::delete('/estoque/produtos_simples/{id}','ProdutosController@destroy')->na
 Route::get('/estoque/cadastro_produtos_comp','ProdutosComposController@create');
 Route::post('/estoque/cadastro_produto_comp','ProdutosComposController@store')->name('cadastro_composto');
 Route::get('/estoque/produtos_compostos','ProdutosComposController@index')->name('produtos_comp_tabela');
-Route::get('/estoque/produtos_compostos/editar/{id}','ProdutosComposController@edit')->name('produtos_comp_edit');
-Route::get('/estoque/produtos_compostos/editar/{id}','ProdutosComposController@update')->name('produtos_comp_edit');
+Route::post('/estoque/produtos_compostos/editar/{id}','ProdutosComposController@update')->name('produtos_comp_edit');
 Route::delete('/estoque/produtos_compostos/{id}','ProdutosComposController@destroy')->name('produtos_destroy_comp');
+Route::get('/estoque/produtos_compostos/editar/{id}','ProdutosComposController@edit');
 
 //Rota Usuarios
 Route::get('/novo_usuario','UserController@create');
@@ -61,6 +64,8 @@ Route::get('/nova_requisição',function(){
 Route::get('/consultar_requição',function(){
     return view('components.forms.consul_req');
 });
+
+
 Route::get('/estoque/retirar_produto',function(){
     return view('components.forms.retirar_produto');
 });
@@ -70,3 +75,14 @@ Route::get('/relatorio',function(){
 Route::get('/', function(){
     return view('home');
 });
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');

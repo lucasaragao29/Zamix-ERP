@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProdutoCompostoModelsTable extends Migration
+class CreateProdutoCompostoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateProdutoCompostoModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('produto_composto_models', function (Blueprint $table) {
+        Schema::create('produto_composto', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quantidade');
             $table->integer('id_produto')->unsigned();
-            $table->foreign('id_produto')->references('id')->on('ProdutosModel');
+            $table->foreign('id_produto')->references('id')->on('Produtos');
             $table->string('categoria');
+            $table->string('preco_compra');
+            $table->string('preco_venda');
             $table->string('preco_total');
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class CreateProdutoCompostoModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produto_composto_models');
+        Schema::dropIfExists('produto_composto');
     }
 }

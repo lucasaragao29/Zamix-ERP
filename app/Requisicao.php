@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EstoqueModel extends Model
+class Requisicao extends Model
 {
-   
+    
 }

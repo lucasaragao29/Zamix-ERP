@@ -1,7 +1,7 @@
 @include('app')
 @yield('header')
 <div class="container">
-    <form>
+    <form style="margin-top: 2rem;">
         @csrf
     <div class="form-row">
         <div class="form-group col-md-6">

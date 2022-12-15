@@ -2,7 +2,15 @@
 @yield('header')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="container">
-    <form action="{{route('cadastro_produto_simples')}}" method="POST">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;); margin-top:1rem;" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="/estoque">Estoque</a></li>
+              <li class="breadcrumb-item"><a href="/estoque/cadastro_produtos">Cadastro de Produto</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Produto Simples</li>
+            </ol>
+          </nav>
+    <form action="{{route('cadastro_produto_simples')}}" method="POST" style="margin-top: 2rem;">
       @csrf
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -31,7 +39,6 @@
         </div>
         <div class="form-group">
           <button type="submit" id='cadastro_produto'class="btn btn-primary">Enviar</button>
-          <button type="submit" class="btn btn-danger"><a href="/estoque/"> Cancelar</a></button>
         </div>
 
         
